@@ -280,11 +280,11 @@ function startAdapter(options) {
                             const token = value;
 							getAPIValues(token, lastEventId, "/status");
 							getAPIValues(token, lastEventId, "/settings");
-							getAPIValues(token, lastEventId, "/programs");
+                            getAPIValues(token, lastEventId, "/programs");
+                            getAPIValues(token, lastEventId, "/programs/selected");
 							getAPIValues(token, lastEventId, "/programs/active");
-							getAPIValues(token, lastEventId, "/programs/selected");
-							updateOptions(token, lastEventId, "/programs/active");
 							updateOptions(token, lastEventId, "/programs/selected");
+                            updateOptions(token, lastEventId, "/programs/active");
                         },
                         (err) => {
                             adapter.log.error("FEHLER: " + err);
@@ -681,10 +681,10 @@ function startAdapter(options) {
                             getAPIValues(token, haId, "/status");
                             getAPIValues(token, haId, "/settings");
                             getAPIValues(token, haId, "/programs");
-                            getAPIValues(token, haId, "/programs/active");
                             getAPIValues(token, haId, "/programs/selected");
+							getAPIValues(token, haId, "/programs/active");
+							updateOptions(token, haId, "/programs/selected");
                             updateOptions(token, haId, "/programs/active");
-                            updateOptions(token, haId, "/programs/selected");
                         }
                         startEventStream(token, haId);
                     },
